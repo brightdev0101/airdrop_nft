@@ -13,15 +13,15 @@ const friends = [
     "0xdB52bd8213E8eedc3b9F3e3b2087659A8743b344",
     "0xe15A4F5eA424B540e6B0558105f88c5D39735374",
 ];
-const existingContractAddr = "0xd8385F898B99803426b8Bf1f4793Bf993715eAA2";
+const existingContractAddr = "0x86052250525c6f0C5e78794d28073EF98fE35a97";
 
 async function main() {
-  const nft = await hre.ethers.getContractAt("DalekNFT", existingContractAddr);
+  const nft = await hre.ethers.getContractAt("BoredApeTestnet", existingContractAddr);
 
   const signer0 = await ethers.provider.getSigner(0);
   const nonce = await signer0.getTransactionCount();
   for(let i = 0; i < friends.length; i++) {
-    const tokenURI = "https://gateway.ipfs.io/ipfs/Qmcz7eFQV3rJKhdAcNAmuMU1WFd3ncZbGkmJNAn5qQap5i";
+    const tokenURI = "https://gateway.ipfs.io/ipfs/QmcnG9VcMuumREednndN28LjzvPjHPDwh2s7nYW9ynckPk";
     await nft.awardItem(friends[i], tokenURI,  {
       nonce: nonce + i
     });
